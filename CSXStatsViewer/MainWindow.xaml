@@ -1,0 +1,128 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CSXStatsViewer.MainWindow"
+        Title="CSX Stats Viewer" Height="488" Width="970" MinWidth="610" MinHeight="410" Icon="/CSXStatsViewer;component/Images/CounterStrikeLogo.ico" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+    	<DataTemplate x:Key="PlayersTemplate">
+    		<Grid HorizontalAlignment="Left" Height="38.2">
+    			<Grid.RowDefinitions>
+    				<RowDefinition Height="0.4*"/>
+    				<RowDefinition Height="0.5*"/>
+    			</Grid.RowDefinitions>
+    			<TextBlock TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Grid.ColumnSpan="1" FontWeight="Bold" d:LayoutOverrides="GridBox"/>
+    			<StackPanel Grid.Row="1" Grid.RowSpan="1" Width="Auto" Margin="0,0.835,0,0" Orientation="Horizontal" Grid.ColumnSpan="1" HorizontalAlignment="Left" Height="16.662" VerticalAlignment="Top">
+    				<TextBlock TextWrapping="Wrap" Text="Net Score : " Height="15.96" VerticalAlignment="Top"/>
+    				<TextBlock TextWrapping="Wrap" Text="{Binding Path=NetScore}" Height="15.96" VerticalAlignment="Top"/>
+    			</StackPanel>
+    		</Grid>
+    	</DataTemplate>
+        <Storyboard x:Key="blurElement">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sharpenElement">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="243*" />
+            <ColumnDefinition Width="705" />
+        </Grid.ColumnDefinitions>
+        <ListBox Margin="12,66,6,30" x:Name="playersListBox" ItemsSource="{Binding}" ItemTemplate="{DynamicResource PlayersTemplate}" SelectionMode="Extended" TabIndex="3" SelectionChanged="PlayersListBoxSelectionChanged" />
+        <Grid Grid.Column="1" Height="379" HorizontalAlignment="Left" Margin="0,40,0,0" DataContext="{Binding ElementName=playersListBox,Path=SelectedItem}" VerticalAlignment="Top" Width="705" Name="detailsGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="342*" />
+                <ColumnDefinition Width="402" />
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Player Name" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" Text="Steam ID" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,111,0,0" Text="Kills" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="81,111,0,0" Text="Deaths" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,213,0,0" Text="Shots" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="81,213,0,0" Text="Hits" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="222,111,0,0" Text="Damage" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="152,111,0,0" Text="Headshots" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,162,0,0" Text="Defusals" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="81,162,0,0" Text="Defused" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="151,162,0,0" Text="Plants" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="222,162,0,0" Text="Explosions" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="222,213,0,0" Text="Generic Shots" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="151,213,0,0" Text="Team Kills" VerticalAlignment="Top" />
+            
+            <TextBox Height="23" Margin="10,31,0,0" Text="{Binding Name}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="282" TabIndex="4" />
+            <TextBox Text="{Binding Unique}" Height="23" Margin="10,82,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="282" TabIndex="5" IsReadOnly="True" />
+            <TextBox Text="{Binding Kills}" Height="23" HorizontalAlignment="Left" Margin="6,133,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="6" />
+            <TextBox Text="{Binding Deaths}" Height="23" HorizontalAlignment="Left" Margin="77,133,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="7" />
+            <TextBox Text="{Binding Shots}" Height="23" HorizontalAlignment="Left" Margin="10,235,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="14" />
+            <TextBox Text="{Binding Hits}" Height="23" HorizontalAlignment="Left" Margin="81,235,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="15" />
+            <TextBox Text="{Binding Damage}" Height="23" HorizontalAlignment="Left" Margin="218,133,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="9" />
+            <TextBox Text="{Binding Headshots}" Height="23" HorizontalAlignment="Left" Margin="148,133,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="8" />
+            <TextBox Text="{Binding BDefusions}" Height="23" HorizontalAlignment="Left" Margin="10,184,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="10" />
+            <TextBox Text="{Binding BDefused}" Height="23" HorizontalAlignment="Left" Margin="81,184,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="11" />
+            <TextBox Text="{Binding BPlants}" Height="23" HorizontalAlignment="Left" Margin="151,184,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="12" />
+            <TextBox Text="{Binding BExplosions}" Height="23" HorizontalAlignment="Left" Margin="222,184,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="13" />
+            <TextBox  Text="{Binding TeamKills}" Height="23" HorizontalAlignment="Left" Margin="151,235,0,0"
+                      VerticalAlignment="Top" Width="65" TabIndex="16" />
+            <TextBlock Text="{Binding Path=NetScore,StringFormat=Net Score : {0}}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="10,312,0,0" />
+            <TextBlock Text="{Binding Path=Accuracy,StringFormat=Accuracy : {0}}" HorizontalAlignment="Left" Margin="10,341,0,0" VerticalAlignment="Top" />
+
+            <Image Margin="8,6,6,6" Source="/CSXStatsViewer;component/Images/GIGN.jpg" Stretch="None" Grid.Column="1" />
+            
+            <TextBox Text="{Binding BodyHits[0]}" Height="23" HorizontalAlignment="Left" Margin="222,235,0,0"
+                     VerticalAlignment="Top" Width="65" TabIndex="17" />
+            <TextBox Text="{Binding BodyHits[1]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,26,0,0" x:Name="headShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="20" />
+            <TextBox Text="{Binding BodyHits[2]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,71,0,0" x:Name="ChestShotsTB"  TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="22" />
+            <TextBox Text="{Binding BodyHits[3]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,141,0,0" x:Name="StomachShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="24" />
+            <TextBox Text="{Binding BodyHits[4]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="312,72,0,0" x:Name="LeftArmShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" TabIndex="23" />
+            <TextBox Text="{Binding BodyHits[5]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="43,72,0,0" x:Name="RightArmShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="21" />
+            <TextBox Text="{Binding BodyHits[6]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="213,282,0,0" x:Name="LeftLegTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="26" />
+            <TextBox Text="{Binding BodyHits[7]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="144,282,0,0" x:Name="RightLegTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="25" />
+          <Button Content="Delete Player(s)" Height="23" HorizontalAlignment="Right" Margin="0,0,8,15"
+                    VerticalAlignment="Bottom" Width="110" Click="DeleteButtonClick" TabIndex="28" />
+            <TextBlock Margin="10,264,168,99" Text="Merge this player with  " TextAlignment="Center" VerticalAlignment="Center" />
+            <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding}" Margin="10,290,62,0" Name="MergeWithComboBox" VerticalAlignment="Top" />
+            <Button Content="Merge" Margin="0,290,8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="23" Width="48" Click="MergeButtonClick" />
+        </Grid>
+        <TextBox Height="23" Margin="12,37,63,0" Name="SearchTextBox" VerticalAlignment="Top" PreviewKeyUp="SearchTextBoxKeyUp" TabIndex="1" />
+        <Button Content="Find" Height="23" HorizontalAlignment="Right" Margin="0,36,6,0" VerticalAlignment="Top" Width="51" Click="SearchButtonClick" TabIndex="2" />
+        <ToolBarTray Grid.ColumnSpan="2" VerticalAlignment="Top">
+            <ToolBar HorizontalContentAlignment="Left" Padding="2">
+                <Button Click="OpenStatsFileClick">Open File</Button>
+                <Button Click="SaveStatsButtonClick">Save Changes</Button>
+                <Separator Margin="3,0" />
+                <Button Click="ShowAboutDialog">About..</Button>
+                <Button Click="ExitButtonClick">Close</Button>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="948" Grid.ColumnSpan="2">
+            <StatusBarItem BorderThickness="1">
+                <StatusBarItem.Content>
+                    <TextBlock Text="{Binding ElementName=playersListBox,Path=Items.Count,StringFormat=Total of {0} Players}" />
+                </StatusBarItem.Content>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFE2E2E2" Offset="0" />
+            <GradientStop Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+</Window>
