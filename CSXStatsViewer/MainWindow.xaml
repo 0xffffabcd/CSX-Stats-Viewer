@@ -80,25 +80,24 @@
                      VerticalAlignment="Top" Width="65" TabIndex="13" />
             <TextBox  Text="{Binding TeamKills}" Height="23" HorizontalAlignment="Left" Margin="151,235,0,0"
                       VerticalAlignment="Top" Width="65" TabIndex="16" />
-            <TextBlock Text="{Binding Path=NetScore,StringFormat=Net Score : {0}}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="10,312,0,0" />
-            <TextBlock Text="{Binding Path=Accuracy,StringFormat=Accuracy : {0}}" HorizontalAlignment="Left" Margin="10,341,0,0" VerticalAlignment="Top" />
+            <TextBlock Text="{Binding Path=NetScore,StringFormat=Net Score : {0}}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="10,318,0,0" />
+            <TextBlock Text="{Binding Path=Accuracy,StringFormat=Accuracy : {0}}" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" />
 
             <Image Margin="8,6,6,6" Source="/CSXStatsViewer;component/Images/GIGN.jpg" Stretch="None" Grid.Column="1" />
             
             <TextBox Text="{Binding BodyHits[0]}" Height="23" HorizontalAlignment="Left" Margin="222,235,0,0"
                      VerticalAlignment="Top" Width="65" TabIndex="17" />
-            <TextBox Text="{Binding BodyHits[1]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,26,0,0" x:Name="headShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="20" />
-            <TextBox Text="{Binding BodyHits[2]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,71,0,0" x:Name="ChestShotsTB"  TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="22" />
-            <TextBox Text="{Binding BodyHits[3]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,141,0,0" x:Name="StomachShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="24" />
-            <TextBox Text="{Binding BodyHits[4]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="312,72,0,0" x:Name="LeftArmShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" TabIndex="23" />
-            <TextBox Text="{Binding BodyHits[5]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="43,72,0,0" x:Name="RightArmShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="21" />
-            <TextBox Text="{Binding BodyHits[6]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="213,282,0,0" x:Name="LeftLegTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="26" />
-            <TextBox Text="{Binding BodyHits[7]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="144,282,0,0" x:Name="RightLegTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="25" />
-          <Button Content="Delete Player(s)" Height="23" HorizontalAlignment="Right" Margin="0,0,8,15"
-                    VerticalAlignment="Bottom" Width="110" Click="DeleteButtonClick" TabIndex="28" />
+            <TextBox Text="{Binding BodyHits[1]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,26,0,0" x:Name="headShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="21" />
+            <TextBox Text="{Binding BodyHits[2]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,71,0,0" x:Name="ChestShotsTB"  TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="23" />
+            <TextBox Text="{Binding BodyHits[3]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="178,141,0,0" x:Name="StomachShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="25" />
+            <TextBox Text="{Binding BodyHits[4]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="312,72,0,0" x:Name="LeftArmShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" TabIndex="24" />
+            <TextBox Text="{Binding BodyHits[5]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="43,72,0,0" x:Name="RightArmShotsTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="22" />
+            <TextBox Text="{Binding BodyHits[6]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="213,282,0,0" x:Name="LeftLegTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="27" />
+            <TextBox Text="{Binding BodyHits[7]}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold" Foreground="Red" Height="28" HorizontalAlignment="Left" Margin="144,282,0,0" x:Name="RightLegTB" TextAlignment="Center" VerticalAlignment="Top" Width="64" Grid.Column="1" TabIndex="26" />
+          <Button Content="Delete Player(s)" Height="23" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="110" Click="DeleteButtonClick" TabIndex="20" />
             <TextBlock Margin="10,264,168,99" Text="Merge this player with  " TextAlignment="Center" VerticalAlignment="Center" />
-            <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding}" Margin="10,290,62,0" Name="MergeWithComboBox" VerticalAlignment="Top" />
-            <Button Content="Merge" Margin="0,290,8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="23" Width="48" Click="MergeButtonClick" />
+            <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding}" Margin="10,290,62,0" Name="MergeWithComboBox" VerticalAlignment="Top" TabIndex="18" />
+            <Button Content="Merge" Margin="0,290,8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="23" Width="48" Click="MergeButtonClick" TabIndex="19" />
         </Grid>
         <TextBox Height="23" Margin="12,37,63,0" Name="SearchTextBox" VerticalAlignment="Top" PreviewKeyUp="SearchTextBoxKeyUp" TabIndex="1" />
         <Button Content="Find" Height="23" HorizontalAlignment="Right" Margin="0,36,6,0" VerticalAlignment="Top" Width="51" Click="SearchButtonClick" TabIndex="2" />

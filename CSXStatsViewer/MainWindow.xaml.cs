@@ -106,7 +106,11 @@ namespace CSXStatsViewer
 #region Removing Players
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
-            if (playersListBox.SelectedItems.Count <= 0) return;
+            if (playersListBox.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select a player to delete","Information",MessageBoxButton.OK,MessageBoxImage.Exclamation);
+                return;
+            }
             
             List<StatsEntry> entries = new List<StatsEntry>(playersListBox.SelectedItems.Count);
             entries.AddRange(playersListBox.SelectedItems.Cast<StatsEntry>());
