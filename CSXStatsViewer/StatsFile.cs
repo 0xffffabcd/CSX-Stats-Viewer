@@ -41,9 +41,6 @@ namespace CSXStatsViewer
 
                 foreach (var statsEntry in entries)
                 {
-                    Debug.WriteLine(statsEntry.Name.Length);
-                    Debug.WriteLine((UInt16)Encoding.ASCII.GetBytes(statsEntry.Name).Length);
-
                     binaryWriter.Write((UInt16)(Encoding.ASCII.GetBytes(statsEntry.Name).Length + 1));
                     binaryWriter.Write(Encoding.ASCII.GetBytes(statsEntry.Name));
                     binaryWriter.Write((byte)0);
